@@ -29,7 +29,7 @@ font-family: Nunito Sans;}
     font-size: x-large;}
 #header>div>h3{margin-right: 55px;
 margin-top: 10px;}
-button,select,.card,#dark_mode,.bx{cursor: pointer;}
+button,select,.card,#dark_mode,title,.bx{cursor: pointer;}
 
 #header>div>h3>i{margin-top: auto;
     margin: 4px;}
