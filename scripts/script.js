@@ -7,9 +7,17 @@ var detail_btn=document.getElementById('detail_btn');
 var detail=document.getElementById('detail');
 var dark_mode=document.getElementById('dark_mode');
 var icon=document.getElementsByTagName('i');
+var title=document.getElementById('title');
+
 detail_btn.style.display="none";
 detail.style.display="none";
 var dark=0;
+title.style.cursor="pointer";
+title.addEventListener('click', function(){
+        alert('Dark Mode');
+        
+})
+
 function country_data(url) {
         fetch(url).then(response => response.json())
         .then(function (data) {
@@ -87,25 +95,29 @@ function country_data(url) {
         })
       
 }
+
 function loaded() {
         search.value="";
 }
 
 window.addEventListener("load",country_data(select.value),loaded());
 
+
+
+/*function of filter by region */
 select.addEventListener('change', function(){
         window.location.reload();
         country_data(select.value);
 
 });
 
-
+/*show country a recherche*/
 btn_search.addEventListener('click', function(){
        
         for (let i = 0; i < card.length; i++) {
-             let country_names=card[i].childNodes[1].firstChild.innerText
-            
-             if (search.value!=country_names) {
+             let country_names=card[i].childNodes[1].firstChild.innerText;
+           let country=search.value[0].toUpperCase() + search.value.substring(1);
+             if (country!=country_names) {
                 
                card[i].style.display="none";
              }else{
@@ -113,6 +125,8 @@ btn_search.addEventListener('click', function(){
              }
         }
 });
+
+/*function of show countrie detail and information*/
 detail_btn.addEventListener('click', function(){
         div.style.display="flex";
         cards.style.display="grid";
@@ -120,6 +134,8 @@ detail_btn.addEventListener('click', function(){
         detail.style.display="none";
         detail.innerHTML=""
 });
+
+/* dark mode function*/
 dark_mode.addEventListener('click',function (){
         var r = document.querySelector(':root');
         
