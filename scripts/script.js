@@ -12,7 +12,7 @@ var title=document.getElementById('title');
 detail_btn.style.display="none";
 detail.style.display="none";
 var dark=0;
-title.style.cursor="pointer";
+
 title.addEventListener('click', function(){
         alert('Dark Mode');
         
